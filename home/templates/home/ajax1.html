@@ -1,0 +1,15 @@
+<html>
+  <body>
+    <button onclick="do_ajax()">Send AJAX request to /api</button>
+    <p id="result"></p>
+    <script>
+      function do_ajax() {
+        fetch('/api')
+          .then(function(response) {
+            console.log(response);
+            document.getElementById("result").innerHTML = response.status + ' ' + response.statusText;
+          });
+      }
+    </script>
+  </body>
+</html>
