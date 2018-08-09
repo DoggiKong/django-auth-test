@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
-from django.contrib.auth.decorators import login_required
+import json
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-# @login_required
+@api_view(['GET'])
 def api_view(request):
-    return JsonResponse({'foo': 'bar'})
+    return Response(json.dumps({'foo': 'bar'}))

@@ -10,7 +10,7 @@
           if(response.ok) {
             return response.json();
           }
-          throw new Error('Network response was not ok.');
+          throw new Error(response.status + ' ' + response.statusText);
         })
         .then(function(response_json) {
           console.log(response_json);
