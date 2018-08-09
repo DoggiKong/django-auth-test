@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <a href="{% url 'index' %}">Home</a> |
+    <a href="{% url 'secret' %}">Secret</a> |
+    <a href="{% url 'api' %}">API</a> |
+    <a href="{% url 'ajax' %}">Ajax</a> |
+    <a href="{% url 'login' %}">Login</a> |
+    <a href="{% url 'logout' %}">Logout</a>
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

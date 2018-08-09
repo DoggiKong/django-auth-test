@@ -1,21 +1,25 @@
-<html>
-<body>
+{% extends 'base.html' %}
 
-<h1>The onclick Event</h1>
-
-<p>The onclick event is used to trigger a function when an element is clicked on.</p>
-
-<p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
-
-<button onclick="myFunction()">Click me</button>
-
-<p id="demo"></p>
-
-<script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "Hello World";
-}
-</script>
-
-</body>
-</html>
+{% block content %}
+  <button onclick="do_ajax()">Send AJAX request to /api</button>
+  <p id="result"></p>
+  <script>
+    function do_ajax() {
+      fetch('/api')
+        .then(function(response) {
+          if(response.ok) {
+            return response.json();
+          }
+          throw new Error('Network response was not ok.');
+        })
+        .then(function(response_json) {
+          console.log(response_json);
+          document.getElementById("result").innerHTML = JSON.stringify(response_json);
+        })
+        .catch(function(error) {
+          console.log(error);
+          document.getElementById("result").innerHTML = error.message;
+        });
+    }
+  </script>
+{% endblock %}

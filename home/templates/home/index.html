@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Home</h1>
+  <p>Sitemap:</p>
+  <ul>
+    <li><a href="{% url 'login' %}">login</a></li>
+    <li><a href="{% url 'logout' %}">logout</a></li>
+    <li><a href="{% url 'secret' %}">secret</a> only logged in users can see</li>
+    <li><a href="{% url 'api' %}">API</a> returns a JSON object to logged in users</li>
+    <li><a href="{% url 'ajax' %}">AJAX</a> call to fetch from API</li>
+  </ul>
+{% endblock %}
